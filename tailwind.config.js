@@ -5,6 +5,9 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  daisyui: {
+    themes: ["light"],
+  },
   theme: {
     container: {
       center: true,
@@ -21,5 +24,5 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };
