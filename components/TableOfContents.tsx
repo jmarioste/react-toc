@@ -48,14 +48,16 @@ const TableOfContents = (props: Props) => {
 
   return (
     <div>
-      <h2>Table Of Contents</h2>
+      <h2 className="uppercase font-bold tracking-widest my-4">
+        Table Of Contents
+      </h2>
       <ul>
         {headings.map((heading) => {
           const id = heading.id;
           const activeClass = activeId === id ? "link-accent" : "";
           const indentation = {
-            3: " pl-2",
-            4: " pl-4",
+            3: " pl-4",
+            4: " pl-8",
           };
           const level = heading.level as keyof typeof indentation;
           const paddingClass = indentation[level] ?? "";
@@ -63,7 +65,11 @@ const TableOfContents = (props: Props) => {
             <li key={id} onClick={() => setActiveId(id)}>
               <a
                 href={`#${id}`}
-                className={"link " + activeClass + paddingClass}
+                className={
+                  "link-hover transition-all my-2 text-lg " +
+                  activeClass +
+                  paddingClass
+                }
               >
                 {heading.text}
               </a>
