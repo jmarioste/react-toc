@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Article from "../components/Article";
 import TableOfContents, { Heading } from "../components/TableOfContents";
+import TocMobile from "../components/TocMobile";
 
 const Home: NextPage = () => {
   //for now we use manual data
@@ -47,6 +48,7 @@ const Home: NextPage = () => {
             <TableOfContents headings={headingsData} />
           </div>
         </div>
+        <TocMobile headings={headingsData} />
       </div>
     </div>
   );
