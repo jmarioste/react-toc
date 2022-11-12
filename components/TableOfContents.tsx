@@ -48,7 +48,7 @@ const TableOfContents = (props: Props) => {
 
   return (
     <div>
-      <h2 className="uppercase font-bold tracking-widest my-4 text-secondary">
+      <h2 className="uppercase font-bold tracking-widest my-4 text-accent">
         Table Of Contents
       </h2>
       <ul>
