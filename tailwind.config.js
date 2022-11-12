@@ -19,16 +19,7 @@ module.exports = {
         "2xl": "1366px",
       },
     },
-    extend: {
-      aspectRatio: {
-        "4/3": "4 / 3",
-        "3/4": "3 / 4",
-        "4/5": "4 / 5",
-        "3/5": "3 / 5",
-        "3/2": "3 / 2",
-        "2/3": "2 / 3",
-      },
-    },
+    extend: {},
   },
   plugins: [require("@tailwindcss/typography")],
 };
