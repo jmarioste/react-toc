@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export type Heading = {
   text: string;
   level: number;
-  id?: string;
+  id: string;
 };
 
 type Props = {
@@ -12,21 +12,40 @@ type Props = {
 
 const TableOfContents = (props: Props) => {
   const { headings } = props;
+  const [activeId, setActiveId] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute("id")!;
+          if (entry.isIntersecting) {
+            setActiveId(id);
+          }
+        });
+      },
+      {
+        rootMargin: "0% 0% -85% 0%",
+      }
+    );
+    headings.forEach((heading) => {
+      const elem = document.getElementById(heading.id);
+      if (elem) {
+        observer.observe(elem);
+      }
+    });
+  }, []);
+
   return (
     <div>
       <h2>Table Of Contents</h2>
       <ul>
-        {headings.map((heading, index) => {
-          const id = heading.id || heading.text.toLowerCase();
-          const padding = {
-            3: "pl-2",
-            4: "pl-4",
-          };
-          const level = heading.level as keyof typeof padding;
-          const paddingClass = padding[level];
+        {headings.map((heading) => {
+          const id = heading.id;
+          const activeClass = activeId === id ? "link-accent" : "";
           return (
-            <li key={index} className={paddingClass}>
-              <a href={`#${id}`} className="link">
+            <li key={id} onClick={() => setActiveId(id)}>
+              <a href={`#${id}`} className={"link " + activeClass}>
                 {heading.text}
               </a>
             </li>

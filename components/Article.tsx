@@ -63,7 +63,7 @@ const Article = () => {
           fuga, quisquam eligendi laborum, voluptate cupiditate minima alias
           perspiciatis corrupti. Magni, ipsam.
         </p>
-        <h2 id="fourth">Fourth heading </h2>
+        <h2 id="fourth-heading">Fourth heading </h2>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi
           dolorum sit nobis in, officiis laboriosam debitis fuga fugiat ab

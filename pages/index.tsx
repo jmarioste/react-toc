@@ -8,18 +8,22 @@ const Home: NextPage = () => {
     {
       level: 2,
       text: "First",
+      id: "first",
     },
     {
       level: 2,
       text: "Second",
+      id: "second",
     },
     {
       level: 2,
       text: "Third",
+      id: "third",
     },
     {
       level: 2,
       text: "Fourth heading",
+      id: "fourth-heading",
     },
   ];
   return (
