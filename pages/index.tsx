@@ -16,6 +16,16 @@ const Home: NextPage = () => {
       id: "second",
     },
     {
+      level: 3,
+      id: "h3-heading",
+      text: "H3 Heading",
+    },
+    {
+      level: 4,
+      id: "h4-heading",
+      text: "H4 Heading",
+    },
+    {
       level: 2,
       text: "Third",
       id: "third",
