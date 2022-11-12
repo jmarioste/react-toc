@@ -53,9 +53,18 @@ const TableOfContents = (props: Props) => {
         {headings.map((heading) => {
           const id = heading.id;
           const activeClass = activeId === id ? "link-accent" : "";
+          const indentation = {
+            3: " pl-2",
+            4: " pl-4",
+          };
+          const level = heading.level as keyof typeof indentation;
+          const paddingClass = indentation[level] ?? "";
           return (
             <li key={id} onClick={() => setActiveId(id)}>
-              <a href={`#${id}`} className={"link " + activeClass}>
+              <a
+                href={`#${id}`}
+                className={"link " + activeClass + paddingClass}
+              >
                 {heading.text}
               </a>
             </li>
