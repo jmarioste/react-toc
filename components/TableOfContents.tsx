@@ -13,7 +13,7 @@ type Props = {
 const TableOfContents = (props: Props) => {
   const { headings } = props;
   const [activeId, setActiveId] = useState("");
-
+  const scrollRef = useRef(0);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -21,6 +21,16 @@ const TableOfContents = (props: Props) => {
           const id = entry.target.getAttribute("id")!;
           if (entry.isIntersecting) {
             setActiveId(id);
+            scrollRef.current = window.scrollY;
+          } else {
+            const diff = scrollRef.current - window.scrollY;
+            const isScrollingUp = diff > 0;
+            const currentIndex = headings.findIndex((h) => h.id === id);
+            const prevEntry = headings[currentIndex - 1];
+            if (isScrollingUp) {
+              const id = prevEntry.id;
+              setActiveId(id);
+            }
           }
         });
       },
