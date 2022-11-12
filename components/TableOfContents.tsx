@@ -27,8 +27,8 @@ const TableOfContents = (props: Props) => {
             const isScrollingUp = diff > 0;
             const currentIndex = headings.findIndex((h) => h.id === id);
             const prevEntry = headings[currentIndex - 1];
-            const id = prevEntry?.id;
-            if (isScrollingUp && id) {
+            const prevId = prevEntry?.id;
+            if (isScrollingUp && prevId) {
               setActiveId(id);
             }
           }
