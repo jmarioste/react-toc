@@ -3,7 +3,7 @@ import React from "react";
 const Article = () => {
   return (
     <div>
-      <h1>How to Build a Table Of Contents Component</h1>
+      <h1 className="my-2">How to Build a Table Of Contents Component</h1>
 
       <div>
         <h2 id="first">First </h2>
